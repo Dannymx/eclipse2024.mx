@@ -15,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-slate-100 ${fontVariables}`}>{children}</body>
+      <body className={`bg-slate-100 font-inter-tight ${fontVariables}`}>
+        {children}
+      </body>
     </html>
   );
 }

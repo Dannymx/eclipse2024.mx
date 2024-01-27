@@ -1,4 +1,26 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+import BundleAnalyzer from "@next/bundle-analyzer";
+import NextMDX from "@next/mdx";
+import { withContentlayer } from "next-contentlayer";
 
-export default nextConfig;
+const withBundlerAnalyzier = BundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+const withMdx = NextMDX();
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  poweredByHeader: false,
+  reactStrictMode: true,
+  swcMinify: true,
+  experimental: {
+    mdxRs: true,
+    typedRoutes: true,
+  },
+
+  ...BundleAnalyzer({
+    enabled: process.env.ANALYZE === "true",
+  }),
+};
+
+export default withBundlerAnalyzier(withMdx(withContentlayer(nextConfig)));

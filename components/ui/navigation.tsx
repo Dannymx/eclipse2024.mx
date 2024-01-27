@@ -11,9 +11,12 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-const links = [
-  { title: "Donde?", href: "/donde-ver-el-eclipse-2024" },
-  { title: "Que necesito?", href: "/que-necesito" },
+export const links: Array<{
+  title: string;
+  href: __next_route_internal_types__.DynamicRoutes;
+}> = [
+  { title: "¿Dónde puedo verlo?", href: "/donde-ver-el-eclipse-2024" },
+  { title: "¿Qué necesito?", href: "/que-necesito" },
   { title: "Fotos", href: "/fotos" },
 ];
 

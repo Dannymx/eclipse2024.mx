@@ -25,7 +25,7 @@ const NavigationMenuItem = NavigationMenuPrimitive.Item;
 const navigationMenuTriggerStyle = cva("", {
   variants: {
     variant: {
-      nav: "rounded-full border border-zinc-200 p-4 text-xl text-zinc-200 hover:border-zinc-100 hover:bg-zinc-100 hover:text-zinc-800",
+      nav: "rounded-full border-2 border-zinc-200 px-4 py-2 text-2xl text-zinc-200 hover:border-zinc-100 hover:bg-zinc-100 hover:text-zinc-800",
     },
   },
 });

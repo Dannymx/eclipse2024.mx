@@ -1,5 +1,23 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
+export const Page = defineDocumentType(() => ({
+  name: "Page",
+  filePathPattern: "pages/**/*.mdx",
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      description: "Title of the page",
+      required: true,
+    },
+    navOrder: {
+      type: "number",
+      description: "Order if appears in navigation",
+      required: false,
+    },
+  },
+}));
+
 export const State = defineDocumentType(() => ({
   name: "State",
   filePathPattern: "states/**/*.mdx",
@@ -45,5 +63,5 @@ export const City = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [State, City],
+  documentTypes: [Page, State, City],
 });

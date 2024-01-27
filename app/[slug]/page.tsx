@@ -1,15 +1,32 @@
+import { useMDXComponent } from "next-contentlayer/hooks";
+
+import { allPages } from "@/.contentlayer/generated";
+import { slugify } from "@/lib/utils";
+
+export const dynamicParams = false;
+
 type Props = {
   params: {
     slug: string;
   };
 };
 
-// const places = [
-//   { state: "Coahuila", cities: ["Melchor Muzquiz", "Torreon"] },
-//   { state: "Durango", cities: ["Gomez Palacio", "Durango", "Nazas", "Rodeo"] },
-//   { state: "Sinaloa", cities: ["Mazatlan"] },
-// ];
+const PageMarkdown = ({ markdown }: { markdown: string }) => {
+  const MDX = useMDXComponent(markdown);
 
-export default function Page({ params }: Props) {
-  return <p>Page: {params.slug}</p>;
+  return <MDX />;
+};
+
+export default function Page({ params: { slug } }: Props) {
+  const markdown = allPages.find((page) => slugify(page.title) === slug);
+
+  if (!markdown) return <h1>Page not found.</h1>;
+
+  return <PageMarkdown markdown={markdown.body.code} />;
+}
+
+export async function generateStaticParams() {
+  const slugs = allPages.map((page) => ({ slug: slugify(page.title) }));
+
+  return slugs;
 }

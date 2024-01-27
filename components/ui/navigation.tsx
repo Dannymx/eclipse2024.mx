@@ -1,8 +1,9 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
 
+import type { Page } from "@/.contentlayer/generated";
+import { allPages } from "@/.contentlayer/generated";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -10,17 +11,22 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-
-export const links: Array<{
-  title: string;
-  href: __next_route_internal_types__.DynamicRoutes;
-}> = [
-  { title: "¿Dónde puedo verlo?", href: "/donde-ver-el-eclipse-2024" },
-  { title: "¿Qué necesito?", href: "/que-necesito" },
-  { title: "Fotos", href: "/fotos" },
-];
+import { slugify } from "@/lib/utils";
 
 export function Navigation() {
+  // This grabs only the .mdx files that should go in the navigation
+  const links = allPages
+    .filter(
+      (page): page is Page & { navOrder: number } =>
+        typeof page.navOrder === "number",
+    )
+    .map((page) => ({
+      title: page.title,
+      href: slugify(page.title) as __next_route_internal_types__.DynamicRoutes,
+      order: page.navOrder,
+    }))
+    .sort((a, b) => a.order - b.order);
+
   return (
     <NavigationMenu>
       <NavigationMenuList className="gap-4">

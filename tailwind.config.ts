@@ -29,6 +29,7 @@ const config = {
         "geist-mono": ["var(--font-geist-mono)", "sans-serif"],
         "bebas-neue": ["var(--font-bebas-neue)", "sans-serif"],
         "inter-tight": ["var(--font-inter-tight)", "sans-serif"],
+        lexend: ["var(--font-lexend)", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -84,10 +85,21 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        text: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        text: "text 5s ease infinite",
       },
     },
   },

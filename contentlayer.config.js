@@ -16,6 +16,13 @@ export const Page = defineDocumentType(() => ({
       required: false,
     },
   },
+  computedFields: {
+    slug: {
+      type: "string",
+      // eslint-disable-next-line no-underscore-dangle
+      resolve: (doc) => doc._raw.sourceFileName.replace(/(\.[^.]+){1}$/, ""),
+    },
+  },
 }));
 
 export const State = defineDocumentType(() => ({
@@ -27,6 +34,13 @@ export const State = defineDocumentType(() => ({
       type: "string",
       description: "Name of the state",
       required: true,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      // eslint-disable-next-line no-underscore-dangle
+      resolve: (doc) => doc._raw.sourceFileName.replace(/(\.[^.]+){1}$/, ""),
     },
   },
 }));
@@ -62,6 +76,6 @@ export const City = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: "content",
+  contentDirPath: "content/markdown",
   documentTypes: [Page, State, City],
 });

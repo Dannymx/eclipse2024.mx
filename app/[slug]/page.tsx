@@ -1,6 +1,6 @@
-import { useMDXComponent } from "next-contentlayer/hooks";
-
 import { allPages } from "@/.contentlayer/generated";
+import { PageComponents } from "@/components/ui/mdx-components";
+import { Markdown } from "@/components/ui/mdx-markdown";
 import { slugify } from "@/lib/utils";
 
 export const dynamicParams = false;
@@ -11,18 +11,12 @@ type Props = {
   };
 };
 
-const PageMarkdown = ({ markdown }: { markdown: string }) => {
-  const MDX = useMDXComponent(markdown);
-
-  return <MDX />;
-};
-
 export default function Page({ params: { slug } }: Props) {
   const markdown = allPages.find((page) => slugify(page.title) === slug);
 
   if (!markdown) return <h1>Page not found.</h1>;
 
-  return <PageMarkdown markdown={markdown.body.code} />;
+  return <Markdown content={markdown.body.code} components={PageComponents} />;
 }
 
 export async function generateStaticParams() {

@@ -1,29 +1,16 @@
-import type { MDXComponents } from "mdx/types";
-import { useMDXComponent } from "next-contentlayer/hooks";
-
 import { allPages } from "@/.contentlayer/generated";
-import { cn, slugify } from "@/lib/utils";
-
-const components: MDXComponents = {
-  h3: ({ className, ...props }) => (
-    <p className={cn("text-center text-3xl", className)} {...props} />
-  ),
-};
-
-const HomepageMarkdown = ({ content }: { content: string }) => {
-  const MDX = useMDXComponent(content);
-
-  return <MDX components={components} />;
-};
+import { HomeComponents } from "@/components/ui/mdx-components";
+import { Markdown } from "@/components/ui/mdx-markdown";
+import { slugify } from "@/lib/utils";
 
 export default function Home() {
-  const markdown = allPages.find((page) => slugify(page.title) === "homepage");
+  const markdown = allPages.find((page) => slugify(page.slug) === "home");
 
   if (!markdown) return <h1>Homepage not found</h1>;
 
   return (
-    <div className="mb-10 flex flex-col gap-4 text-left text-xl">
-      <HomepageMarkdown content={markdown.body.code} />
+    <div className="mb-10 flex flex-col">
+      <Markdown content={markdown.body.code} components={HomeComponents} />
     </div>
   );
 }

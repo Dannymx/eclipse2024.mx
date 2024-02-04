@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-slate-100 font-inter-tight ${fontVariables}`}>
+      <body className={`bg-slate-100 font-lexend ${fontVariables}`}>
         <main className="flex min-h-screen flex-col">
           <div className="w-full bg-black">
             {/* Hero container */}
@@ -37,12 +37,16 @@ export default function RootLayout({
           </div>
           <div className="min-h-[900px] w-full bg-zinc-400 bg-gradient-to-b from-black from-50% to-zinc-400">
             {/* Main content container */}
-            <div className="container flex max-w-screen-lg flex-col items-center gap-8 text-center text-gray-200">
-              <h1 className="text-center font-bebas-neue text-8xl font-bold">
-                <Link href="/">Eclipse Solar 2024</Link>
-              </h1>
-              <Navigation />
-              {children}
+            <div className="container flex max-w-screen-lg flex-col gap-8">
+              <div className="text-center">
+                <h1 className="inline-block animate-text bg-gradient-to-r from-gray-200 to-gray-900 bg-clip-text font-bebas-neue text-8xl font-bold text-transparent">
+                  <Link href="/">Eclipse Solar 2024</Link>
+                </h1>
+              </div>
+              <div className="self-center">
+                <Navigation />
+              </div>
+              <div className="text-gray-200">{children}</div>
             </div>
           </div>
         </main>

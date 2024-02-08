@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <div className="mb-10 flex flex-col">
-      <Markdown content={markdown.body.code} components={HomeComponents} />
+      <Markdown content={markdown.body.raw} components={HomeComponents} />
     </div>
   );
 }

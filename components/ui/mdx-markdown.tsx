@@ -1,5 +1,5 @@
 import type { MDXComponents } from "mdx/types";
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 export const Markdown = ({
   content,
@@ -7,8 +7,4 @@ export const Markdown = ({
 }: {
   content: string;
   components: MDXComponents;
-}) => {
-  const MDX = useMDXComponent(content);
-
-  return <MDX components={components} />;
-};
+}) => <MDXRemote source={content} components={components} />;

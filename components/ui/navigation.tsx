@@ -22,7 +22,7 @@ export function Navigation() {
     )
     .map((page) => ({
       title: page.title,
-      href: slugify(page.title) as __next_route_internal_types__.DynamicRoutes,
+      href: `/${slugify(page.title)}` as __next_route_internal_types__.DynamicRoutes,
       order: page.navOrder,
     }))
     .sort((a, b) => a.order - b.order);

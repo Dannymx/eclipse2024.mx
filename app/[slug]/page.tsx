@@ -1,5 +1,5 @@
 import { allPages } from "@/.contentlayer/generated";
-import { StatesSummary } from "@/components/states-summary";
+import { StatesSummary } from "@/components/states/states-summary";
 import { PageComponents } from "@/components/ui/mdx-components";
 import { Markdown } from "@/components/ui/mdx-markdown";
 import { slugify } from "@/lib/utils";
@@ -20,7 +20,7 @@ export default function Page({ params: { slug } }: Props) {
   return (
     <Markdown
       content={markdown.body.raw}
-      components={{ PageComponents, StatesSummary }}
+      components={{ ...PageComponents, StatesSummary }}
     />
   );
 }

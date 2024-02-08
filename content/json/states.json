@@ -4,7 +4,7 @@
     "cities": [
       {
         "name": "Ciudad Acuña",
-        "type": "total",
+        "type": "Total",
         "duration": "3:24",
         "partial_start": "17:10:49",
         "totality_start": "18:28:22",
@@ -14,14 +14,14 @@
       },
       {
         "name": "Saltillo",
-        "type": "partial",
+        "type": "Parcial",
         "partial_start": "17:03",
         "maximum": "18:22",
         "partial_end": "19:45"
       },
       {
         "name": "Torreón",
-        "type": "total",
+        "type": "Total",
         "duration": "4:08",
         "partial_start": "16:59:58",
         "totality_start": "18:16:58",
@@ -30,9 +30,19 @@
         "partial_end": "19:41:30"
       },
       {
+        "name": "Melchor Múzquiz",
+        "type": "Total",
+        "duration": "4:27",
+        "partial_start": "17:07:11",
+        "totality_start": "18:24:19",
+        "maximum": "18:26:33",
+        "totality_end": "18:28:47",
+        "partial_end": "19:48:28"
+      },
+      {
         "name": "Monclova",
-        "type": "total",
-        "duration": "2:21",
+        "type": "Total",
+        "duration": "2:17",
         "partial_start": "17:05:24",
         "totality_start": "18:23:44",
         "maximum": "18:24:55",
@@ -41,7 +51,7 @@
       },
       {
         "name": "Piedras Negras",
-        "type": "total",
+        "type": "Total",
         "duration": "4:24",
         "partial_start": "17:10:09",
         "totality_start": "18:27:26",
@@ -56,7 +66,7 @@
     "cities": [
       {
         "name": "Durango",
-        "type": "total",
+        "type": "Total",
         "duration": "3:48",
         "partial_start": "16:55:15",
         "totality_start": "18:12:08",
@@ -66,7 +76,7 @@
       },
       {
         "name": "Gómez Palacio",
-        "type": "total",
+        "type": "Total",
         "duration": "4:17",
         "partial_start": "16:59:57",
         "totality_start": "18:16:52",
@@ -76,7 +86,7 @@
       },
       {
         "name": "Nazas",
-        "type": "total",
+        "type": "Total",
         "duration": "4:27",
         "partial_start": "16:58:23",
         "totality_start": "18:15:02",
@@ -91,14 +101,14 @@
     "cities": [
       {
         "name": "Culiacán",
-        "type": "partial",
+        "type": "Parcial",
         "partial_start": "16:53:31",
         "maximum": "18:11:09",
         "partial_end": "19:33:02"
       },
       {
         "name": "Mazatlán",
-        "type": "total",
+        "type": "Total",
         "duration": "4:17",
         "partial_start": "16:51:28",
         "totality_start": "18:07:31",

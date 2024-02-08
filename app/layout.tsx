@@ -46,7 +46,7 @@ export default function RootLayout({
               <div className="self-center">
                 <Navigation />
               </div>
-              <div className="text-gray-200">{children}</div>
+              <div className="mb-10 text-gray-200">{children}</div>
             </div>
           </div>
         </main>

@@ -9,7 +9,7 @@ export default function Home() {
   if (!markdown) return <h1>Homepage not found</h1>;
 
   return (
-    <div className="mb-10 flex flex-col">
+    <div className="flex flex-col">
       <Markdown content={markdown.body.raw} components={HomeComponents} />
     </div>
   );

@@ -1,8 +1,11 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
-import states from "@/content/json/states.json";
-import { slugify } from "@/lib/utils";
-import { statesSchema } from "@/schemas/states";
+import { allStates } from "@/.contentlayer/generated";
+import { CitiesSummary } from "@/components/cities/cities-summary";
+import { PageComponents } from "@/components/ui/mdx-components";
+import { Markdown } from "@/components/ui/mdx-markdown";
+import { getStates, slugify } from "@/lib/utils";
 
 export const dynamicParams = false;
 
@@ -11,21 +14,48 @@ export default function State({
 }: {
   params: { state: string };
 }) {
-  const stateQuery = statesSchema
-    .parse(states)
-    .find((item) => slugify(item.name) === state);
+  const stateQuery = getStates().find((item) => slugify(item.name) === state);
 
   if (!stateQuery) {
     notFound();
   }
 
-  return <h1>{state}</h1>;
+  const markdown = allStates.find(
+    (page) => page.slug === slugify(stateQuery.name),
+  );
+
+  if (!markdown) return <h1>Please define page content</h1>;
+
+  return (
+    <div className="flex flex-col gap-4 pt-4">
+      <div className="flex flex-col gap-4 sm:flex-row">
+        <div className="w-full sm:w-1/4">
+          <div className="relative flex aspect-square items-center justify-center">
+            <Image
+              src={`/img/${state}.svg`}
+              className="object-contain"
+              alt={`${stateQuery.name} coat of arms`}
+              fill
+            />
+          </div>
+        </div>
+        <div className="w-full sm:w-3/4">
+          <Markdown
+            content={markdown.body.raw}
+            components={{ ...PageComponents, CitiesSummary }}
+          />
+        </div>
+      </div>
+
+      <div className="w-full">
+        <CitiesSummary />
+      </div>
+    </div>
+  );
 }
 
 export async function generateStaticParams() {
-  const stateNames = statesSchema
-    .parse(states)
-    .map((item) => slugify(item.name));
+  const stateNames = getStates().map((item) => slugify(item.name));
 
   return stateNames;
 }

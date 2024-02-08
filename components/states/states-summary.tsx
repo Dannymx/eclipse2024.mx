@@ -12,16 +12,21 @@ export const StatesSummary = () => {
   const params = useParams<{ slug: string }>();
 
   return (
-    <div className="grid grid-cols-3">
+    <div className="grid grid-cols-2 sm:grid-cols-3">
       {states.map((state) => (
         <div key={state.name} className="flex flex-col gap-4 pt-4">
-          <div className="relative flex aspect-video items-center justify-center">
-            <Image
-              src={`/img/${state.name}.svg`}
-              className="object-contain"
-              alt={`${state.name} coat of arms`}
-              fill
-            />
+          <div className="flex h-[200px] items-center justify-center">
+            <Link
+              href={`/${params.slug}/estado/${slugify(state.name)}`}
+              className="relative aspect-square h-full"
+            >
+              <Image
+                src={`/img/${slugify(state.name)}.svg`}
+                className="object-contain"
+                alt={`${state.name} coat of arms`}
+                fill
+              />
+            </Link>
           </div>
           <h3 className="text-center font-bebas-neue text-4xl hover:underline">
             <Link href={`/${params.slug}/estado/${slugify(state.name)}`}>

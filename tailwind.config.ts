@@ -29,8 +29,7 @@ const config = {
         "geist-sans": ["var(--font-geist-sans)", "sans-serif"],
         "geist-mono": ["var(--font-geist-mono)", "sans-serif"],
         "bebas-neue": ["var(--font-bebas-neue)", "sans-serif"],
-        "inter-tight": ["var(--font-inter-tight)", "sans-serif"],
-        lexend: ["var(--font-lexend)", "sans-serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

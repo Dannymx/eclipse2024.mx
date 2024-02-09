@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-slate-100 font-lexend ${fontVariables}`}>
+      <body className={`bg-slate-100 font-inter ${fontVariables}`}>
         <main className="flex min-h-screen flex-col">
           <div className="w-full bg-black">
             {/* Hero container */}

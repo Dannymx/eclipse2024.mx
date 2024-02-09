@@ -1,4 +1,6 @@
 import type { MDXComponents } from "mdx/types";
+import type { ImageProps } from "next/image";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
@@ -16,6 +18,10 @@ export const HomeComponents: MDXComponents = {
       {...props}
     />
   ),
+  img: (props) => (
+    // eslint-disable-next-line jsx-a11y/alt-text
+    <Image style={{ objectFit: "cover" }} {...(props as ImageProps)} fill />
+  ),
 };
 
 export const PageComponents: MDXComponents = {
@@ -24,5 +30,9 @@ export const PageComponents: MDXComponents = {
   ),
   h3: ({ className, ...props }) => (
     <h3 className={cn("text-4xl font-bebas-neue", className)} {...props} />
+  ),
+  img: (props) => (
+    // eslint-disable-next-line jsx-a11y/alt-text
+    <Image style={{ objectFit: "cover" }} {...(props as ImageProps)} fill />
   ),
 };

@@ -5,19 +5,23 @@
       {
         "name": "Ciudad Acuña",
         "type": "Total",
-        "duration": "3:24",
+        "duration": "3:22",
         "partial_start": "17:10:49",
         "totality_start": "18:28:22",
         "maximum": "18:30:04",
         "totality_end": "18:31:46",
-        "partial_end": "19:51:30"
+        "partial_end": "19:51:30",
+        "timezone": "America/Monterrey",
+        "dst": true
       },
       {
         "name": "Saltillo",
         "type": "Parcial",
-        "partial_start": "17:03",
-        "maximum": "18:22",
-        "partial_end": "19:45"
+        "partial_start": "17:03:12",
+        "maximum": "18:22:55",
+        "partial_end": "19:45:29",
+        "timezone": "America/Monterrey",
+        "dst": false
       },
       {
         "name": "Torreón",
@@ -27,7 +31,9 @@
         "totality_start": "18:16:58",
         "maximum": "18:19:03",
         "totality_end": "18:21:07",
-        "partial_end": "19:41:30"
+        "partial_end": "19:41:30",
+        "timezone": "America/Monterrey",
+        "dst": false
       },
       {
         "name": "Melchor Múzquiz",
@@ -37,7 +43,9 @@
         "totality_start": "18:24:19",
         "maximum": "18:26:33",
         "totality_end": "18:28:47",
-        "partial_end": "19:48:28"
+        "partial_end": "19:48:28",
+        "timezone": "America/Monterrey",
+        "dst": false
       },
       {
         "name": "Monclova",
@@ -47,7 +55,9 @@
         "totality_start": "18:23:44",
         "maximum": "18:24:55",
         "totality_end": "18:26:05",
-        "partial_end": "19:47:07"
+        "partial_end": "19:47:07",
+        "timezone": "America/Monterrey",
+        "dst": false
       },
       {
         "name": "Piedras Negras",
@@ -57,7 +67,9 @@
         "totality_start": "18:27:26",
         "maximum": "18:29:39",
         "totality_end": "18:31:51",
-        "partial_end": "19:51:19"
+        "partial_end": "19:51:19",
+        "timezone": "America/Monterrey",
+        "dst": true
       }
     ]
   },
@@ -72,7 +84,9 @@
         "totality_start": "18:12:08",
         "maximum": "18:14:02",
         "totality_end": "18:15:56",
-        "partial_end": "19:36:42"
+        "partial_end": "19:36:42",
+        "timezone": "America/Monterrey",
+        "dst": false
       },
       {
         "name": "Gómez Palacio",
@@ -82,17 +96,21 @@
         "totality_start": "18:16:52",
         "maximum": "18:19:01",
         "totality_end": "18:21:09",
-        "partial_end": "19:41:26"
+        "partial_end": "19:41:26",
+        "timezone": "America/Monterrey",
+        "dst": false
       },
       {
         "name": "Nazas",
         "type": "Total",
-        "duration": "4:27",
+        "duration": "4:28",
         "partial_start": "16:58:23",
         "totality_start": "18:15:02",
         "maximum": "18:17:16",
         "totality_end": "18:19:30",
-        "partial_end": "19:39:43"
+        "partial_end": "19:39:43",
+        "timezone": "America/Monterrey",
+        "dst": false
       }
     ]
   },
@@ -104,7 +122,9 @@
         "type": "Parcial",
         "partial_start": "16:53:31",
         "maximum": "18:11:09",
-        "partial_end": "19:33:02"
+        "partial_end": "19:33:02",
+        "timezone": "America/Mazatlan",
+        "dst": false
       },
       {
         "name": "Mazatlán",
@@ -114,7 +134,9 @@
         "totality_start": "18:07:31",
         "maximum": "18:08:39",
         "totality_end": "18:11:49",
-        "partial_end": "19:32:12"
+        "partial_end": "19:32:12",
+        "timezone": "America/Mazatlan",
+        "dst": false
       }
     ]
   }

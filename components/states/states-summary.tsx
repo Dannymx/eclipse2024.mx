@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRightFromSquare } from "lucide-react";
+import { LucideArrowRightCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -28,24 +28,29 @@ export const StatesSummary = () => {
               />
             </Link>
           </div>
-          <h3 className="text-center font-bebas-neue text-4xl hover:underline">
+          <h3 className="inline-block text-center font-bebas-neue text-4xl hover:underline">
             <Link href={`/${params.slug}/estado/${slugify(state.name)}`}>
               {state.name}
             </Link>
           </h3>
-          <ul className="flex grow list-none flex-col items-center justify-start gap-2">
-            {state.cities.map((city) => (
-              <li key={slugify(city.name)}>
-                <Link
-                  className="inline-block hover:underline"
-                  href={`/${params.slug}/ciudad/${slugify(city.name)}`}
-                >
-                  {city.name}{" "}
-                  <ArrowUpRightFromSquare size={14} className="inline-block" />
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="flex items-center justify-center">
+            <ul className="flex grow-0 list-none flex-col gap-2">
+              {state.cities.map((city) => (
+                <li key={slugify(city.name)}>
+                  <Link
+                    className="inline-block"
+                    href={`/${params.slug}/ciudad/${slugify(city.name)}`}
+                  >
+                    <span className="hover:underline">{city.name}</span>{" "}
+                    <LucideArrowRightCircle
+                      size={16}
+                      className="inline-block"
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       ))}
     </div>

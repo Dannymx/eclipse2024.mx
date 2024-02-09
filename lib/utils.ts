@@ -19,3 +19,36 @@ export const slugify = (string: string) =>
     .replace(/^-+|-+$/g, "");
 
 export const getStates = () => statesSchema.parse(states);
+
+export const getLocalTime = ({
+  dateString = "2024-04-08",
+  dateTimezone,
+  dateDst,
+  utcTime,
+}: {
+  dateString?: string;
+  dateTimezone: string;
+  dateDst: boolean;
+  utcTime: string;
+}) => {
+  // Combine date and time into a single string
+
+  // Create a Date object with the combined string in UTC format
+  const utcDateTime = new Date(`${dateString}T${utcTime}Z`);
+
+  // If DST is true, subtract one hour from the local time
+  if (dateDst) {
+    utcDateTime.setHours(utcDateTime.getHours() + 1);
+  }
+
+  // Format local time with AM/PM
+  const localTimeString = utcDateTime.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hour12: true,
+    timeZone: dateTimezone,
+  });
+
+  return localTimeString;
+};

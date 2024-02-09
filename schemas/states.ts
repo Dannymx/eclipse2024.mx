@@ -9,6 +9,8 @@ export const citySchema = z.object({
   maximum: z.string(),
   totality_end: z.string().optional(),
   partial_end: z.string(),
+  timezone: z.string(),
+  dst: z.boolean(),
 });
 
 export const statesSchema = z.array(

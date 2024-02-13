@@ -22,13 +22,16 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
 
 const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
-const navigationMenuTriggerStyle = cva("", {
-  variants: {
-    variant: {
-      nav: "rounded-full border-2 border-zinc-200 px-4 py-2 text-zinc-200 hover:border-zinc-100 hover:bg-zinc-100 hover:text-zinc-800",
+const navigationMenuTriggerStyle = cva(
+  "border-zinc-200 text-zinc-200 hover:border-zinc-100 hover:bg-zinc-100 hover:text-zinc-800",
+  {
+    variants: {
+      variant: {
+        nav: "rounded-full border-2 px-4 py-2",
+      },
     },
   },
-});
+);
 
 const NavigationMenuTrigger = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,

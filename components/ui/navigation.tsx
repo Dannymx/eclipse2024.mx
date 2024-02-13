@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 import type { Page } from "@/.contentlayer/generated";
 import { allPages } from "@/.contentlayer/generated";
@@ -11,9 +12,11 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { slugify } from "@/lib/utils";
+import { cn, slugify } from "@/lib/utils";
 
 export function Navigation() {
+  const params = useParams<{ slug: string }>();
+
   // This grabs only the .mdx files that should go in the navigation
   const links = allPages
     .filter(
@@ -22,20 +25,24 @@ export function Navigation() {
     )
     .map((page) => ({
       title: page.title,
-      href: `/${slugify(page.title)}` as __next_route_internal_types__.DynamicRoutes,
+      href: slugify(page.title),
       order: page.navOrder,
     }))
     .sort((a, b) => a.order - b.order);
 
   return (
     <NavigationMenu>
-      <NavigationMenuList className="flex flex-col gap-4 sm:flex-row">
+      <NavigationMenuList className="flex flex-row flex-wrap gap-4 sm:flex-row">
         {links.map((link) => (
           <NavigationMenuItem key={link.href}>
-            <Link href={link.href} legacyBehavior passHref>
+            <Link href={`/${link.href}`} legacyBehavior passHref>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle({
-                  className: "text-xl xs:text-xl md:text-2xl inline-block",
+                  className: cn(
+                    "text-xl xs:text-xl md:text-2xl inline-block",
+                    params.slug === link.href &&
+                      "bg-primary-foreground text-zinc-800",
+                  ),
                   variant: "nav",
                 })}
               >

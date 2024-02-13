@@ -12,7 +12,7 @@ export const StatesSummary = () => {
   const params = useParams<{ slug: string }>();
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3">
+    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3">
       {states.map((state) => (
         <div key={state.name} className="flex flex-col gap-4 pt-4">
           <div className="flex h-[200px] items-center justify-center">

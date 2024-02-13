@@ -19,9 +19,13 @@ export const HomeComponents: MDXComponents = {
       {...props}
     />
   ),
-  img: (props) => (
+  img: ({ className, ...props }) => (
     // eslint-disable-next-line jsx-a11y/alt-text
-    <Image style={{ objectFit: "cover" }} {...(props as ImageProps)} fill />
+    <Image
+      className={cn("object-cover", className)}
+      {...(props as ImageProps)}
+      fill
+    />
   ),
 };
 
@@ -45,9 +49,13 @@ export const PageComponents: MDXComponents = {
   h4: ({ className, ...props }) => (
     <h4 className={cn("text-3xl font-bebas-neue", className)} {...props} />
   ),
-  img: (props) => (
+  img: ({ className, ...props }) => (
     // eslint-disable-next-line jsx-a11y/alt-text
-    <Image style={{ objectFit: "cover" }} {...(props as ImageProps)} fill />
+    <Image
+      className={cn("object-cover", className)}
+      {...(props as ImageProps)}
+      fill
+    />
   ),
   ul: ({ className, ...props }) => (
     <ul

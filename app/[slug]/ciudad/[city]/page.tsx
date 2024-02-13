@@ -84,7 +84,7 @@ export default function City({
         <>
           <h3 className="font-bebas-neue text-4xl">Mapa del Eclipse</h3>
           <div className="relative flex aspect-square grow items-center justify-center">
-            <div className="relative size-full overflow-hidden rounded-md shadow-md shadow-black">
+            <div className="relative size-full overflow-hidden rounded-2xl shadow-md shadow-black">
               <Image
                 src={`/img/maps/${slugify(cityQuery.name)}.png`}
                 alt={`Mapa del eclipse en ${cityQuery.name}`}

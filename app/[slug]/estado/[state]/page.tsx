@@ -29,8 +29,8 @@ export default function State({
   return (
     <div className="flex flex-col gap-4 pt-4">
       <div className="flex flex-col gap-4 sm:flex-row">
-        <div className="w-full sm:w-1/4">
-          <div className="relative flex aspect-square items-center justify-center">
+        <div className="flex h-[200px] w-full items-center justify-center sm:w-1/4">
+          <div className="relative flex aspect-square h-full items-center justify-center">
             <Image
               src={`/img/${state}.svg`}
               className="object-contain"

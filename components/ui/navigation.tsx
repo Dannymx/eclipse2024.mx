@@ -29,12 +29,15 @@ export function Navigation() {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList className="gap-4">
+      <NavigationMenuList className="flex flex-col gap-4 sm:flex-row">
         {links.map((link) => (
           <NavigationMenuItem key={link.href}>
             <Link href={link.href} legacyBehavior passHref>
               <NavigationMenuLink
-                className={navigationMenuTriggerStyle({ variant: "nav" })}
+                className={navigationMenuTriggerStyle({
+                  className: "text-xl xs:text-xl md:text-2xl inline-block",
+                  variant: "nav",
+                })}
               >
                 {link.title}
               </NavigationMenuLink>

@@ -10,6 +10,16 @@ export const Page = defineDocumentType(() => ({
       description: "Title of the page",
       required: true,
     },
+    meta_title: {
+      type: "string",
+      description: "Meta title of the page",
+      required: true,
+    },
+    meta_description: {
+      type: "string",
+      description: "Meta description of the page",
+      required: false,
+    },
     navOrder: {
       type: "number",
       description: "Order if appears in navigation",

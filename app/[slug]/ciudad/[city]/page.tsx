@@ -2,19 +2,16 @@ import { AlertCircle } from "lucide-react";
 import Image from "next/image";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { getLocalTime, getStates, slugify } from "@/lib/utils";
+import { getCity, getLocalTime, getStates, slugify } from "@/lib/utils";
+
+export const dynamicParams = false;
 
 export default function City({
   params: { city },
 }: {
   params: { city: string };
 }) {
-  const cityQuery = getStates()
-    .flatMap((state) =>
-      state.cities.find((item) => slugify(item.name) === city),
-    )
-    .filter((item) => item)
-    .shift();
+  const cityQuery = getCity(city);
 
   if (!cityQuery) return <h1>City not found</h1>;
 
@@ -57,7 +54,7 @@ export default function City({
             })}
           </p>
         )}
-        <p className="font-bold underline">
+        <p className="font-bold underline underline-offset-2">
           Punto maximo:{" "}
           {getLocalTime({
             dateDst: cityQuery.dst,

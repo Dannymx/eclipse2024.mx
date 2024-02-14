@@ -5,7 +5,7 @@ import { StatesSummary } from "@/components/states/states-summary";
 import { PageComponents } from "@/components/ui/mdx-components";
 import { Markdown } from "@/components/ui/mdx-markdown";
 import { getMetadata } from "@/lib/OpenGraph";
-import { getPageBySlug, slugify } from "@/lib/utils";
+import { slugify } from "@/lib/utils";
 
 export const dynamicParams = false;
 
@@ -14,6 +14,9 @@ type Props = {
     slug: string;
   };
 };
+
+const getPageBySlug = (slug: string) =>
+  allPages.find((item) => slugify(item.title) === slug);
 
 export async function generateMetadata({
   params: { slug },
@@ -46,8 +49,6 @@ export default function Page({ params: { slug } }: Props) {
 
 export async function generateStaticParams() {
   const slugs = allPages.map((page) => ({ slug: slugify(page.title) }));
-
-  console.log("server slugs: ", slugs);
 
   return slugs;
 }

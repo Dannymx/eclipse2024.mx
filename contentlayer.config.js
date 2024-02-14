@@ -88,4 +88,5 @@ export const City = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "content/markdown",
   documentTypes: [Page, State, City],
+  disableImportAliasWarning: true,
 });

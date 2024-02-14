@@ -1,10 +1,39 @@
 import { AlertCircle } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { getMetadata } from "@/lib/OpenGraph";
 import { getCity, getLocalTime, getStates, slugify } from "@/lib/utils";
 
 export const dynamicParams = false;
+
+export async function generateMetadata({
+  params: { slug, city },
+}: {
+  params: { slug: string; city: string };
+}): Promise<Metadata> {
+  const cityQuery = getCity(city);
+
+  if (!cityQuery) return {};
+
+  const title = `Eclipse en ${cityQuery.name} sera ${cityQuery.type} e iniciara a ${getLocalTime(
+    {
+      dateDst: cityQuery.dst,
+      utcTime: cityQuery.partial_start,
+      dateTimezone: cityQuery.timezone,
+    },
+  )} hora local`;
+
+  return {
+    title,
+    ...getMetadata({
+      title,
+      slug: `/${slug}/city/${slugify(cityQuery.name)}`,
+      card: `/api/og?card=city&slug=${slugify(cityQuery.name)}`,
+    }),
+  };
+}
 
 export default function City({
   params: { city },

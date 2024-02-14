@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -5,9 +6,28 @@ import { allStates } from "@/.contentlayer/generated";
 import { CitiesSummary } from "@/components/cities/cities-summary";
 import { PageComponents } from "@/components/ui/mdx-components";
 import { Markdown } from "@/components/ui/mdx-markdown";
+import { getMetadata } from "@/lib/OpenGraph";
 import { getStates, slugify } from "@/lib/utils";
 
 export const dynamicParams = false;
+
+export async function generateMetadata({
+  params: { slug, state },
+}: {
+  params: { slug: string; state: string };
+}): Promise<Metadata> {
+  const stateQuery = getStates().find((item) => slugify(item.name) === state);
+  if (!stateQuery) return {};
+
+  return {
+    title: `Ciudades de ${stateQuery.name} donde se vera el Eclipse Total de Sol el 8 de Abril de 2024`,
+    ...getMetadata({
+      title: `Ciudades de ${stateQuery.name} donde se vera el eclipse`,
+      slug: `/${slug}/estado/${slugify(stateQuery.name)}`,
+      card: `/api/og?card=state&slug=${slugify(stateQuery.name)}`,
+    }),
+  };
+}
 
 export default function State({
   params: { state },

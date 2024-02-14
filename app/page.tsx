@@ -4,10 +4,10 @@ import { allPages } from "@/.contentlayer/generated";
 import { HomeComponents } from "@/components/ui/mdx-components";
 import { Markdown } from "@/components/ui/mdx-markdown";
 import { getMetadata } from "@/lib/OpenGraph";
-import { getPageBySlug, slugify } from "@/lib/utils";
+import { slugify } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = getPageBySlug("home");
+  const page = allPages.find((item) => slugify(item.title) === "home");
   if (!page) return {};
 
   return {

@@ -1,7 +1,8 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-import { allPages } from "@/.contentlayer/generated";
+// This is causing issues here, TODO: investigate
+// import { allPages } from "@/.contentlayer/generated";
 import states from "@/content/json/states.json";
 import { statesSchema } from "@/schemas/states";
 
@@ -19,8 +20,8 @@ export const slugify = (string: string) =>
     .replace(/[\s_-]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
-export const getPageBySlug = (slug: string) =>
-  allPages.find((page) => slugify(page.title) === slug);
+// export const getPageBySlug = (slug: string) =>
+//   allPages.find((page) => slugify(page.title) === slug);
 
 export const getStates = () => statesSchema.parse(states);
 

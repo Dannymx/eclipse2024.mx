@@ -33,39 +33,59 @@ export default function City({
             {cityQuery.type}
           </span>{" "}
         </p>
-        <p>
+        <p className="mb-4">
           Duracion:{" "}
           {cityQuery.duration
             ? `${cityQuery.duration.split(":").at(0)} minutos con ${cityQuery.duration.split(":").at(1)} segundos`
             : "-"}
         </p>
         <p>
-          Inicio de eclipse:{" "}
+          Inicio de eclipse parcial (luna empieza a cubrir el sol):{" "}
           {getLocalTime({
             dateDst: cityQuery.dst,
             utcTime: cityQuery.partial_start,
             dateTimezone: cityQuery.timezone,
-          })}{" "}
-          (tiempo local)
+          })}
         </p>
-        <p>
+        {cityQuery.totality_start && (
+          <p>
+            Inicio de eclipse total (luna cubre completamente el sol):{" "}
+            {getLocalTime({
+              dateDst: cityQuery.dst,
+              utcTime: cityQuery.totality_start,
+              dateTimezone: cityQuery.timezone,
+            })}
+          </p>
+        )}
+        <p className="font-bold underline">
           Punto maximo:{" "}
           {getLocalTime({
             dateDst: cityQuery.dst,
             utcTime: cityQuery.maximum,
             dateTimezone: cityQuery.timezone,
-          })}{" "}
-          (tiempo local)
+          })}
         </p>
-        <p>
-          Fin de eclipse:{" "}
+        {cityQuery.totality_end && (
+          <p>
+            Fin de eclipse total (luna empieza a decubrir el sol):{" "}
+            {getLocalTime({
+              dateDst: cityQuery.dst,
+              utcTime: cityQuery.totality_end,
+              dateTimezone: cityQuery.timezone,
+            })}
+          </p>
+        )}
+        <p className="mb-4">
+          Fin de eclipse parcial (luna descubre el sol completamente):{" "}
           {getLocalTime({
             dateDst: cityQuery.dst,
             utcTime: cityQuery.partial_end,
             dateTimezone: cityQuery.timezone,
-          })}{" "}
-          (tiempo local)
+          })}
         </p>
+        <small className="font-bold text-gray-400">
+          *Todas las horas son en tiempo local de la ciudad
+        </small>
       </div>
       {cityQuery.type === "Parcial" ? (
         <div>

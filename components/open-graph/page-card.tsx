@@ -19,7 +19,6 @@ export const PageCard = ({ slug }: { slug: string }) => {
       <div
         tw="flex py-2 flex-col items-center justify-start w-4/5 h-3/5 text-white"
         style={{
-          fontFamily: "Inter",
           fontWeight: "bold",
         }}
       >

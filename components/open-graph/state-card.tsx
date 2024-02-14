@@ -46,16 +46,12 @@ export const StateCard = ({ slug }: { slug: string }) => {
             />
           </div>
           <div tw="flex h-3/5">
-            <div
-              tw="flex px-4 flex-col items-center justify-start w-full text-white"
-              style={{
-                fontFamily: "Inter",
-              }}
-            >
+            <div tw="flex px-4 flex-col items-center justify-start w-full text-white">
               <h1
-                tw="text-9xl text-center"
+                tw="text-8xl text-center"
                 style={{
-                  fontFamily: "Bebas",
+                  fontWeight: "bold",
+                  textTransform: "uppercase",
                 }}
               >
                 {page.name}

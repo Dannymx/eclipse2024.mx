@@ -32,28 +32,29 @@ const getCardContent = ({ searchParams }: URL) => {
 export async function GET(request: Request) {
   const url = new URL(request.url);
 
-  const inter = await fetch(
-    new URL("/assets/fonts/Inter-Bold.ttf", import.meta.url),
-  ).then((res) => res.arrayBuffer());
+  // These fonts are too heavy for the free tier of Vercel
+  // const inter = await fetch(
+  //   new URL("/assets/fonts/Inter-Bold.ttf", import.meta.url),
+  // ).then((res) => res.arrayBuffer());
 
-  const bebas = await fetch(
-    new URL("/assets/fonts/BebasNeue-Regular.ttf", import.meta.url),
-  ).then((res) => res.arrayBuffer());
+  // const bebas = await fetch(
+  //   new URL("/assets/fonts/BebasNeue-Regular.ttf", import.meta.url),
+  // ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(getCardContent(url), {
     width: 1200,
     height: 630,
-    fonts: [
-      {
-        name: "Inter",
-        data: inter,
-        style: "normal",
-      },
-      {
-        name: "Bebas",
-        data: bebas,
-        style: "normal",
-      },
-    ],
+    // fonts: [
+    //   // {
+    //   //   name: "Inter",
+    //   //   data: inter,
+    //   //   style: "normal",
+    //   // },
+    //   {
+    //     name: "Bebas",
+    //     data: bebas,
+    //     style: "normal",
+    //   },
+    // ],
   });
 }

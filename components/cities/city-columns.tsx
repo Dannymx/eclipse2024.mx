@@ -1,12 +1,29 @@
-import type { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown } from "lucide-react";
+import type { ColumnDef, Row } from "@tanstack/react-table";
+import { ArrowUpDown, ArrowUpRightFromSquareIcon } from "lucide-react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import type { z } from "zod";
 import { Button } from "../ui/button";
 import { FormattedTime } from "./city-time";
 
+import { slugify } from "@/lib/utils";
 import type { citySchema } from "@/schemas/states";
 
 export type City = z.infer<typeof citySchema>;
+
+const LinkedCity = ({ city }: { city: Row<City> }) => {
+  const params = useParams<{ slug: string }>();
+
+  const url =
+    `/${params.slug}/ciudad/${slugify(city.original.name)}` as __next_route_internal_types__.DynamicRoutes;
+
+  return (
+    <Link href={url} className="text-nowrap">
+      {city.original.name}{" "}
+      <ArrowUpRightFromSquareIcon size={16} className="inline-block" />
+    </Link>
+  );
+};
 
 export const columns: ColumnDef<City>[] = [
   {
@@ -21,6 +38,7 @@ export const columns: ColumnDef<City>[] = [
         <ArrowUpDown className="ml-2 size-4" />
       </Button>
     ),
+    cell: ({ row }) => <LinkedCity city={row} />,
   },
   {
     accessorKey: "type",

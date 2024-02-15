@@ -45,10 +45,10 @@ export default function City({
   if (!cityQuery) return <h1>City not found</h1>;
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-6">
       <h3 className="font-bebas-neue text-4xl">{cityQuery.name}</h3>
 
-      <div className="text-xl">
+      <div className="flex flex-col text-xl">
         <p>
           Tipo de eclipse:{" "}
           <span
@@ -66,7 +66,7 @@ export default function City({
             : "-"}
         </p>
         <p>
-          Inicio de eclipse parcial (luna empieza a cubrir el sol):{" "}
+          Inicio parcial:{" "}
           {getLocalTime({
             dateDst: cityQuery.dst,
             utcTime: cityQuery.partial_start,
@@ -75,7 +75,7 @@ export default function City({
         </p>
         {cityQuery.totality_start && (
           <p>
-            Inicio de eclipse total (luna cubre completamente el sol):{" "}
+            Inicio totalidad:{" "}
             {getLocalTime({
               dateDst: cityQuery.dst,
               utcTime: cityQuery.totality_start,
@@ -93,7 +93,7 @@ export default function City({
         </p>
         {cityQuery.totality_end && (
           <p>
-            Fin de eclipse total (luna empieza a decubrir el sol):{" "}
+            Fin de totalidad:{" "}
             {getLocalTime({
               dateDst: cityQuery.dst,
               utcTime: cityQuery.totality_end,
@@ -102,7 +102,7 @@ export default function City({
           </p>
         )}
         <p className="mb-4">
-          Fin de eclipse parcial (luna descubre el sol completamente):{" "}
+          Fin de parcial:{" "}
           {getLocalTime({
             dateDst: cityQuery.dst,
             utcTime: cityQuery.partial_end,
@@ -127,7 +127,7 @@ export default function City({
         </div>
       ) : null}
       {cityQuery.type === "Total" ? (
-        <>
+        <div>
           <h3 className="font-bebas-neue text-4xl">Mapa del Eclipse</h3>
           <div className="relative flex aspect-square grow items-center justify-center">
             <div className="relative size-full overflow-hidden rounded-2xl shadow-md shadow-black">
@@ -138,7 +138,7 @@ export default function City({
               />
             </div>
           </div>
-        </>
+        </div>
       ) : null}
     </div>
   );

@@ -20,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-slate-100 font-inter ${fontVariables}`}>
+      <body
+        className={`bg-slate-100 font-inter ${fontVariables} bg-gradient-to-b from-black from-50% to-zinc-400`}
+      >
         <main className="flex min-h-screen flex-col">
           <div className="w-full bg-black">
             {/* Hero container */}
@@ -39,7 +41,7 @@ export default function RootLayout({
               </Link>
             </div>
           </div>
-          <div className="min-h-[900px] w-full bg-zinc-400 bg-gradient-to-b from-black from-50% to-zinc-400">
+          <div className="w-full">
             {/* Main content container */}
             <div className="container flex max-w-screen-lg flex-col gap-8">
               <div className="text-center">
@@ -60,7 +62,7 @@ export default function RootLayout({
                 <Analytics />
               </div>
 
-              <div className="flex h-[100px] flex-col justify-end pb-8 text-center text-lg text-gray-200">
+              <div className="flex flex-col justify-end gap-2 py-8 text-center text-sm text-gray-200">
                 <p>
                   Envia tus contribuciones a este sitio web a traves de{" "}
                   <a

@@ -18,7 +18,7 @@ export const StatesSummary = () => {
           <div className="flex h-[200px] items-center justify-center">
             <Link
               href={`/${params.slug}/estado/${slugify(state.name)}`}
-              className="relative aspect-square h-full"
+              className="relative aspect-square h-4/5 sm:h-full"
             >
               <Image
                 src={`/img/${slugify(state.name)}.svg`}

@@ -59,6 +59,28 @@ export default function RootLayout({
                 {children}
                 <Analytics />
               </div>
+
+              <div className="flex h-[100px] flex-col justify-end pb-8 text-center text-lg text-gray-200">
+                <p>
+                  Envia tus contribuciones a este sitio web a traves de{" "}
+                  <a
+                    href="https://github.com/Dannymx/eclipse2024.mx"
+                    className="font-bold hover:underline"
+                  >
+                    Github
+                  </a>
+                </p>
+                <p>
+                  Información recopilada con fuentes de la NASA y mapas de
+                  eclipses por{" "}
+                  <a
+                    href="http://xjubier.free.fr/en/site_pages/solar_eclipses/TSE_2024_GoogleMapFull.html"
+                    target="_blank"
+                  >
+                    XJubier
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </main>

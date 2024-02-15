@@ -9,7 +9,7 @@ import { Markdown } from "@/components/ui/mdx-markdown";
 import { getMetadata } from "@/lib/OpenGraph";
 import { getStates, slugify } from "@/lib/utils";
 
-export const dynamicParams = false;
+// export const dynamicParams = false;
 
 export async function generateMetadata({
   params: { slug, state },

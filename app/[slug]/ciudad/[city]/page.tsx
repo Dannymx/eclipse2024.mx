@@ -6,7 +6,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { getMetadata } from "@/lib/OpenGraph";
 import { getCity, getLocalTime, getStates, slugify } from "@/lib/utils";
 
-export const dynamicParams = false;
+// export const dynamicParams = false;
 
 export async function generateMetadata({
   params: { slug, city },

@@ -25,6 +25,11 @@ export const Page = defineDocumentType(() => ({
       description: "Order if appears in navigation",
       required: false,
     },
+    location: {
+      type: "boolean",
+      description: "If this page is a location of eclipse page",
+      required: false,
+    },
   },
   computedFields: {
     slug: {
